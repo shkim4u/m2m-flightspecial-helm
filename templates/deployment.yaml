@@ -19,3 +19,31 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: {{ .Values.container.port }}
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Gi"
+              cpu: "500m"
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              valueFrom:
+                configMapKeyRef:
+                  key: environment
+                  name: flightspecials-configmap
+            - name: DATABASE_ENDPOINT
+              valueFrom:
+                configMapKeyRef:
+                  key: database_endpoint
+                  name: flightspecials-configmap
+            - name: DATABASE_PORT
+              valueFrom:
+                configMapKeyRef:
+                  key: database_port
+                  name: flightspecials-configmap
+            - name: DATBASE_USERNAME
+              valueFrom:
+                configMapKeyRef:
+                  key: database_username
+                  name: flightspecials-configmap
