@@ -10,10 +10,11 @@ metadata:
     {{/*To share the ingress among other applications.*/}}
     alb.ingress.kubernetes.io/group.name: travelbuddy
     alb.ingress.kubernetes.io/group.order: '2'
+    alb.ingress.kubernetes.io/healthcheck-path: "/flightspecials/"
 spec:
   rules:
-    - host: {{ .Values.service.name }}.{{ .Values.namespace.name }}.cluster.local
-      http:
+{{/*    - host: {{ .Values.service.name }}.{{ .Values.namespace.name }}.cluster.local*/}}
+    - http:
         paths:
           - path: /flightspecials
             pathType: Prefix
