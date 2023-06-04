@@ -15,7 +15,7 @@ spec:
     - host: {{ .Values.service.name }}.{{ .Values.namespace.name }}.cluster.local
       http:
         paths:
-          - path: /
+          - path: /flightspecials
             pathType: Prefix
             backend:
               service:
