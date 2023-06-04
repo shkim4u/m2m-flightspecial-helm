@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  namespace: {{ .Values.namespace.name }}
+  name: {{ .Values.ingress.name }}
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    {{/*To share the ingress among other applications.*/}}
+    alb.ingress.kubernetes.io/group.name: travelbuddy
+    alb.ingress.kubernetes.io/group.order: '2'
+spec:
+  rules:
+    - host: {{ .Values.service.name }}.{{ .Values.namespace.name }}.cluster.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: {{ .Values.service.name }}
+                port:
+                  number: {{ .Values.service.port }}
