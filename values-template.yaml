@@ -6,7 +6,7 @@ deployment:
   name: flightspecials
   replicas: 2
 image:
-  repository: ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-2.amazonaws.com/${ECR_REPO}
+  repository: ${ECR_REPO_URI}
   tag: ${IMAGE_TAG}
 container:
   port: 8080
