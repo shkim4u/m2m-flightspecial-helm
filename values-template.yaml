@@ -2,6 +2,7 @@ namespace:
   name: flightspecials
 app:
   name: flightspecials
+  build_number: ${CODEBUILD_BUILD_NUMBER}
 deployment:
   name: flightspecials
   replicas: 2

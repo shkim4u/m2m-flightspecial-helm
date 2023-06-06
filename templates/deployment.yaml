@@ -60,6 +60,8 @@ spec:
                   name: flightspecials-configmap
             - name: DB_DEFAULT_SCHEMA
               value: travelbuddy
+            - name: CODEBUILD_BUILD_NUMBER
+              value: "{{ .Values.app.build_number }}"
 {{/*  strategy:*/}}
 {{/*    canary:*/}}
 {{/*      maxSurge: "50%"    # canary 배포로 생성할 pod의 비율*/}}
