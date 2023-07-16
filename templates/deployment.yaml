@@ -62,6 +62,12 @@ spec:
               value: travelbuddy
             - name: CODEBUILD_BUILD_NUMBER
               value: "{{ .Values.app.build_number }}"
+        # - name: nginx
+        #   image: public.ecr.aws/nginx/nginx:1.21
+        #   ports:
+        #   - name: http
+        #     containerPort: 80
+        #   imagePullPolicy: IfNotPresent
 {{/*  strategy:*/}}
 {{/*    canary:*/}}
 {{/*      maxSurge: "50%"    # canary 배포로 생성할 pod의 비율*/}}
