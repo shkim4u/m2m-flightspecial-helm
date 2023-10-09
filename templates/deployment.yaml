@@ -17,7 +17,8 @@ spec:
     spec:
       serviceAccountName: flightspecials-service-account
       containers:
-        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | replace "!" "" }}"
+#        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag | replace "!" "" }}"
+        - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           name: {{ .Values.app.name }}
           imagePullPolicy: Always
           ports:

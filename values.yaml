@@ -8,7 +8,7 @@ deployment:
   replicas: 2
 image:
   repository: ${ECR_REPO_URI}
-  tag: !${IMAGE_TAG}
+  tag: ${IMAGE_TAG}
 container:
   port: 8080
 service:
